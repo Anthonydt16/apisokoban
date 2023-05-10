@@ -36,13 +36,17 @@ class Map extends Rest {
             $map = new MapDto();
             $map->id = $id;
             $map = $map->read();
+            $map->parseJson();
             $this->send($map, 1, 'Map récupérée !', Http::HTTP_OK);
         });
 
         $this->match("/api/map", function () {
             $map = new MapDto();
-            $map = $map->All();
-            $this->send($map, 1, 'Map récupérée !', Http::HTTP_OK);
+            $maps = $map->All();
+            foreach ($maps as $map) {
+                $map->parseJson();
+            }
+            $this->send($maps, 1, 'Map récupérée !', Http::HTTP_OK);
         });
     }
     /**

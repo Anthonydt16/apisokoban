@@ -25,6 +25,7 @@ r::add('/api/map/{id}', a\Map::class, [
     r::METHOD_PUT,
     r::METHOD_DELETE,
     r::METHOD_PATCH
+
 ]);
 
 

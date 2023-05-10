@@ -40,6 +40,15 @@ class Map extends Crud {
         $this->json = $json;
         $this->date_upload = $date_upload;
     }
+    /**
+     * Méthode pour parse l'attribut json de string à json
+     *
+     * @access public
+     */
+    public function parseJson(): void
+    {
+        $this->json = json_decode($this->json);
+    }
 	
 }
 
